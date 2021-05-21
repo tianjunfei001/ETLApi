@@ -1,3 +1,4 @@
+using Autofac;
 using ETL.ERP.BLL;
 using ETL.ERP.DAL;
 using log4net;
@@ -34,15 +35,24 @@ namespace ETLSystemManagement.API
 
         public IConfiguration Configuration { get; }
 
+        //批量注册
+        public ILifetimeScope AutofacContainer { get; private set; }
+
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
 
+            //批量注册
+            services.AddControllersWithViews();
+
+
+
+            //分开
             services.AddControllers();
 
             //注册
-            services.AddTransient<Ceshi>();
-            services.AddTransient<SqlServerHelper>();
+            //services.AddTransient<Ceshi>();
+            //services.AddTransient<SqlServerHelper>();
 
 
             #region Cors跨域请求
@@ -85,6 +95,13 @@ namespace ETLSystemManagement.API
 
         }
 
+        //批量注册
+        public void ConfigureContainer(ContainerBuilder builder)
+        {
+            // 直接用Autofac注册我们自定义的 
+            builder.RegisterModule(new CustomAutofacModule());
+        }
+
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
         {
@@ -93,6 +110,12 @@ namespace ETLSystemManagement.API
                 app.UseDeveloperExceptionPage();
                 app.UseSwagger();
                 app.UseSwaggerUI(c => c.SwaggerEndpoint("/swagger/v1/swagger.json", "ETLSystemManagement.API v1"));
+            }
+            else//批量注册
+            {
+                app.UseExceptionHandler("/Home/Error");
+                // The default HSTS value is 30 days. You may want to change this for production scenarios, see https://aka.ms/aspnetcore-hsts.
+                app.UseHsts();
             }
 
 
