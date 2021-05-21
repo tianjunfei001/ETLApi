@@ -1,0 +1,12 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netcoreapp3.1</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\ETL.ERP.DAL\ETL.ERP.DAL.csproj" />
+    <ProjectReference Include="..\ETL.ERP.Model\ETL.ERP.Model.csproj" />
+  </ItemGroup>
+
+</Project>
