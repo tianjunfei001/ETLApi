@@ -7,6 +7,7 @@
   <ItemGroup>
     <ProjectReference Include="..\ETL.ERP.DAL\ETL.ERP.DAL.csproj" />
     <ProjectReference Include="..\ETL.ERP.Model\ETL.ERP.Model.csproj" />
+    <ProjectReference Include="..\ETL.ERP.ThirdParty\ETL.ERP.ThirdParty.csproj" />
   </ItemGroup>
 
 </Project>

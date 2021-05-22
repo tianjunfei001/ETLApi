@@ -4,6 +4,12 @@
         <name>ETLSystemManagement.API</name>
     </assembly>
     <members>
+        <member name="M:ETLSystemManagement.API.Controllers.CompanyController.GetCompanyShow">
+            <summary>
+            获取company公司基本信息表
+            </summary>
+            <returns></returns>
+        </member>
         <member name="M:ETLSystemManagement.API.Controllers.HomeController.GetShow">
             <summary>
             测试
