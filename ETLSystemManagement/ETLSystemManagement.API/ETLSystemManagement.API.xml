@@ -1,0 +1,21 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>ETLSystemManagement.API</name>
+    </assembly>
+    <members>
+        <member name="M:ETLSystemManagement.API.Controllers.HomeController.GetShow">
+            <summary>
+            测试
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:ETLSystemManagement.API.CustomAutofacModule.GetAssemblyByName(System.String)">
+            <summary>
+            根据程序集名称获取程序集
+            </summary>
+            <param name="AssemblyName">程序集名称</param>
+            <returns></returns>
+        </member>
+    </members>
+</doc>

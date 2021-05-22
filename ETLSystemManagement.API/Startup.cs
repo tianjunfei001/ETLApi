@@ -1,4 +1,5 @@
 using Autofac;
+using Autofac.Extensions.DependencyInjection;
 using ETL.ERP.BLL;
 using ETL.ERP.DAL;
 using log4net;
@@ -35,14 +36,14 @@ namespace ETLSystemManagement.API
 
         public IConfiguration Configuration { get; }
 
-        //批量注册
+        //autofac 新增
         public ILifetimeScope AutofacContainer { get; private set; }
 
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
 
-            //批量注册
+            //autofac 新增
             services.AddControllersWithViews();
 
 
@@ -95,7 +96,7 @@ namespace ETLSystemManagement.API
 
         }
 
-        //批量注册
+        //autofac 新增
         public void ConfigureContainer(ContainerBuilder builder)
         {
             // 直接用Autofac注册我们自定义的 
@@ -117,6 +118,10 @@ namespace ETLSystemManagement.API
                 // The default HSTS value is 30 days. You may want to change this for production scenarios, see https://aka.ms/aspnetcore-hsts.
                 app.UseHsts();
             }
+
+
+            //autofac 新增 可选
+            this.AutofacContainer = app.ApplicationServices.GetAutofacRoot();
 
 
             //开启Cors跨域请求中间件
