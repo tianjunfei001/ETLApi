@@ -26,6 +26,5 @@ namespace ETLSystemManagement.API
         {
             return Assembly.Load(AssemblyName);
         }
-
     }
 }

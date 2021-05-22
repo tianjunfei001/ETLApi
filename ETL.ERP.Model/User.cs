@@ -14,5 +14,12 @@ namespace ETL.ERP.Model
         public int? Ustatus { get; set; }
         public DateTime? Upd_Time { get; set; }
         public DateTime? CreateTime { get; set; }
+
+        //角色编号
+        public int RId { get; set; }
+        //部门
+        public string Fname { get; set; }
+        //职位
+        public string Rname { get; set; }
     }
 }

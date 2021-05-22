@@ -10,5 +10,62 @@
             </summary>
             <returns></returns>
         </member>
+        <member name="M:ETLSystemManagement.API.Controllers.SystemSetupController.GetUsersList">
+            <summary>
+            用户组显示
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:ETLSystemManagement.API.Controllers.SystemSetupController.AddRole(System.String,System.Int32)">
+            <summary>
+            添加部门/岗位
+            </summary>
+            <param name="departName"></param>
+            <param name="fid"></param>
+            <returns></returns>
+        </member>
+        <member name="M:ETLSystemManagement.API.Controllers.SystemSetupController.DelUser(System.Int32)">
+            <summary>
+            删除用户及相关信息
+            </summary>
+            <param name="uid"></param>
+            <returns></returns>
+        </member>
+        <member name="M:ETLSystemManagement.API.Controllers.SystemSetupController.AddUser(ETL.ERP.Model.User)">
+            <summary>
+            添加用户及相关信息
+            </summary>
+            <param name="user"></param>
+            <returns></returns>
+        </member>
+        <member name="M:ETLSystemManagement.API.Controllers.SystemSetupController.UpdUser(ETL.ERP.Model.User)">
+            <summary>
+            修改用户及相关信息
+            </summary>
+            <param name="user"></param>
+            <returns></returns>
+        </member>
+        <member name="M:ETLSystemManagement.API.Controllers.SystemSetupController.UpdUsersUstatus(System.Int32,System.Int32)">
+            <summary>
+            修改用户状态
+            </summary>
+            <param name="Uid"></param>
+            <param name="Ustatus"></param>
+            <returns></returns>
+        </member>
+        <member name="M:ETLSystemManagement.API.Controllers.SystemSetupController.SearchRole(System.Int32)">
+            <summary>
+            部门、角色显示
+            </summary>
+            <param name="fid"></param>
+            <returns></returns>
+        </member>
+        <member name="M:ETLSystemManagement.API.CustomAutofacModule.GetAssemblyByName(System.String)">
+            <summary>
+            根据程序集名称获取程序集
+            </summary>
+            <param name="AssemblyName">程序集名称</param>
+            <returns></returns>
+        </member>
     </members>
 </doc>
