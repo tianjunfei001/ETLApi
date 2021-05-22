@@ -9,7 +9,7 @@ namespace ETL.ERP.Model
     [Table("company")]
     public partial class Company
     {
-        public int Id { get; set; }
+        public int id { get; set; }
         public string Represent_Name { get; set; }
         public string Phone { get; set; }
         public string Corporate_Name { get; set; }
