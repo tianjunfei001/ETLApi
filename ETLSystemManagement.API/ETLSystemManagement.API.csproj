@@ -5,7 +5,7 @@
   </PropertyGroup>
 
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
-    <DocumentationFile>C:\Users\田俊飞\Desktop\实2\ETLSystemManagement.API\ETLSystemManagement.API.xml</DocumentationFile>
+    <DocumentationFile>D:\1808A班\实训二\ETLSystemManagement.API\ETLSystemManagement.API.xml</DocumentationFile>
     <NoWarn>1701;1702;1591</NoWarn>
   </PropertyGroup>
 
