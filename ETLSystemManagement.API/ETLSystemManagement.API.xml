@@ -4,6 +4,11 @@
         <name>ETLSystemManagement.API</name>
     </assembly>
     <members>
+        <member name="M:ETLSystemManagement.API.Controllers.CompanyController.Token(ETLSystemManagement.API.Models.app_mobile_user)">
+            <summary>
+            获取token
+            </summary>
+        </member>
         <member name="M:ETLSystemManagement.API.Controllers.CompanyController.GetCompanyShow">
             <summary>
             获取company公司基本信息表
@@ -311,6 +316,31 @@
             </summary>
             <param name="AssemblyName">程序集名称</param>
             <returns></returns>
+        </member>
+        <member name="P:ETLSystemManagement.API.Models.app_mobile_user.phone">
+            <summary>
+            手机号
+            </summary>
+        </member>
+        <member name="P:ETLSystemManagement.API.Models.app_mobile_user.password">
+            <summary>
+            密码
+            </summary>
+        </member>
+        <member name="P:ETLSystemManagement.API.Models.JwtSettings.Issuer">
+            <summary>
+            token是谁颁发的
+            </summary>
+        </member>
+        <member name="P:ETLSystemManagement.API.Models.JwtSettings.Audience">
+            <summary>
+            token可以给那些客户端使用
+            </summary>
+        </member>
+        <member name="P:ETLSystemManagement.API.Models.JwtSettings.SecretKey">
+            <summary>
+            加密的key（SecretKey必须大于16个,是大于，不是大于等于）
+            </summary>
         </member>
     </members>
 </doc>
