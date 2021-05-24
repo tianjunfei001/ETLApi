@@ -4,6 +4,11 @@
         <name>ETLSystemManagement.API</name>
     </assembly>
     <members>
+        <member name="M:ETLSystemManagement.API.Controllers.CompanyController.Token(ETLSystemManagement.API.Models.app_mobile_user)">
+            <summary>
+            获取token
+            </summary>
+        </member>
         <member name="M:ETLSystemManagement.API.Controllers.CompanyController.GetCompanyShow">
             <summary>
             获取company公司基本信息表
@@ -55,118 +60,6 @@
             <summary>
             测试
             </summary>
-            <returns></returns>
-        </member>
-        <member name="M:ETLSystemManagement.API.Controllers.RentController.Shengdisplay">
-            <summary>
-            省显示
-            </summary>
-            <param name="a"></param>
-            <returns></returns>
-        </member>
-        <member name="M:ETLSystemManagement.API.Controllers.RentController.Shidisplay">
-            <summary>
-            市显示
-            </summary>
-            <param name="a"></param>
-            <returns></returns>
-        </member>
-        <member name="M:ETLSystemManagement.API.Controllers.RentController.Qudisplay">
-            <summary>
-            区显示
-            </summary>
-            <param name="a"></param>
-            <returns></returns>
-        </member>
-        <member name="M:ETLSystemManagement.API.Controllers.RentController.UserLogin(ETL.ERP.Model.Rent.Model.Account)">
-            <summary>
-            用户登录
-            </summary>
-            <param name="a"></param>
-            <returns></returns>
-        </member>
-        <member name="M:ETLSystemManagement.API.Controllers.RentController.Userregister(ETL.ERP.Model.Rent.Model.Account)">
-            <summary>
-            用户注册
-            </summary>
-            <param name="a"></param>
-            <returns></returns>
-        </member>
-        <member name="M:ETLSystemManagement.API.Controllers.RentController.Userdisplay(System.Int32)">
-            <summary>
-            用户个人信息显示
-            </summary>
-            <param name="a"></param>
-            <returns></returns>
-        </member>
-        <member name="M:ETLSystemManagement.API.Controllers.RentController.UpdUserPassword(ETL.ERP.Model.Rent.Model.Account)">
-            <summary>
-            修改用户密码
-            </summary>
-            <param name="a"></param>
-            <returns></returns>
-        </member>
-        <member name="M:ETLSystemManagement.API.Controllers.RentController.UpdUser(ETL.ERP.Model.Rent.Model.AccountInfo)">
-            <summary>
-            修改用户个人信息
-            </summary>
-            <param name="a"></param>
-            <returns></returns>
-        </member>
-        <member name="M:ETLSystemManagement.API.Controllers.RentController.Merchatregister(ETL.ERP.Model.Rent.Model.Merchant)">
-            <summary>
-            商户注册
-            </summary>
-            <param name="a"></param>
-            <returns></returns>
-        </member>
-        <member name="M:ETLSystemManagement.API.Controllers.RentController.MerchatLogin(ETL.ERP.Model.Rent.Model.Merchant)">
-            <summary>
-            商户登录
-            </summary>
-            <param name="m"></param>
-            <returns></returns>
-        </member>
-        <member name="M:ETLSystemManagement.API.Controllers.RentController.Merchantdisplay(System.Int32)">
-            <summary>
-            商户个人信息显示
-            </summary>
-            <param name="a"></param>
-            <returns></returns>
-        </member>
-        <member name="M:ETLSystemManagement.API.Controllers.RentController.UpdMerchantPassword(ETL.ERP.Model.Rent.Model.Merchant)">
-            <summary>
-            修改商户密码
-            </summary>
-            <param name="a"></param>
-            <returns></returns>
-        </member>
-        <member name="M:ETLSystemManagement.API.Controllers.RentController.UpdMerchant(ETL.ERP.Model.Rent.Model.MerchantInfo)">
-            <summary>
-            修改商户个人信息
-            </summary>
-            <param name="a"></param>
-            <returns></returns>
-        </member>
-        <member name="M:ETLSystemManagement.API.Controllers.RentController.AdministratorsLogin(ETL.ERP.Model.Rent.Model.Administrators)">
-            <summary>
-            管理员登录
-            </summary>
-            <param name="m"></param>
-            <returns></returns>
-        </member>
-        <member name="M:ETLSystemManagement.API.Controllers.RentController.TypesHousingdisplay">
-            <summary>
-            房源类型显示
-            </summary>
-            <param name="m"></param>
-            <returns></returns>
-        </member>
-        <member name="M:ETLSystemManagement.API.Controllers.RentController.UpdTypesHousing(System.Int32)">
-            <summary>
-            房源类型状态修改
-            </summary>
-            <param name="a"></param>
             <returns></returns>
         </member>
         <member name="M:ETLSystemManagement.API.Controllers.SystemSetupController.GetUsersList">
@@ -225,6 +118,31 @@
             </summary>
             <param name="AssemblyName">程序集名称</param>
             <returns></returns>
+        </member>
+        <member name="P:ETLSystemManagement.API.Models.app_mobile_user.phone">
+            <summary>
+            手机号
+            </summary>
+        </member>
+        <member name="P:ETLSystemManagement.API.Models.app_mobile_user.password">
+            <summary>
+            密码
+            </summary>
+        </member>
+        <member name="P:ETLSystemManagement.API.Models.JwtSettings.Issuer">
+            <summary>
+            token是谁颁发的
+            </summary>
+        </member>
+        <member name="P:ETLSystemManagement.API.Models.JwtSettings.Audience">
+            <summary>
+            token可以给那些客户端使用
+            </summary>
+        </member>
+        <member name="P:ETLSystemManagement.API.Models.JwtSettings.SecretKey">
+            <summary>
+            加密的key（SecretKey必须大于16个,是大于，不是大于等于）
+            </summary>
         </member>
     </members>
 </doc>
