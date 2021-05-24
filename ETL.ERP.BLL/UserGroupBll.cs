@@ -89,6 +89,13 @@ namespace ETL.ERP.BLL
             return list;
         }
 
+        public List<Permission> GetPermissionList()
+        {
+            string sql = $"select * from Permission;";
+            DataTable dt = helper.GetDataSet(sql).Tables[0];
+            List<Permission> list = helper.DatatableTolist<Permission>(dt);
+            return list;
+        }
 
     }
 }

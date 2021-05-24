@@ -8,11 +8,11 @@ namespace ETL.ERP.Model
     public partial class LogLog
     {
         public int Id { get; set; }
-        public string UserName { get; set; }
+        public string User_Name { get; set; }
         public string Phone { get; set; }
-        public DateTime? CreateTime { get; set; }
-        public int? LogSeate { get; set; }
-        public string LogLP { get; set; }
-        public string LogCity { get; set; }
+        public DateTime? Create_Time { get; set; }
+        public int? Log_Seate { get; set; }
+        public string Log_LP { get; set; }
+        public string Log_City { get; set; }
     }
 }
