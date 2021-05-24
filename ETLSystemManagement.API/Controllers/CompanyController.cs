@@ -83,10 +83,6 @@ namespace ETLSystemManagement.API.Controllers
             return result;
         }
 
-        /// <summary>
-        /// 获取token
-        /// </summary>
-        /// <returns></returns>
         [Route("get_token")]
         [HttpPost]
         public IActionResult GetToken()
@@ -94,10 +90,6 @@ namespace ETLSystemManagement.API.Controllers
             return Ok(Token(null));
         }
 
-        /// <summary>
-        /// 测试token令牌
-        /// </summary>
-        /// <returns></returns>
         [Authorize]
         [Route("get_user_info")]
         [HttpPost]
