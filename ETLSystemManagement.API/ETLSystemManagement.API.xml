@@ -123,6 +123,12 @@
             </summary>
             <returns></returns>
         </member>
+        <member name="M:ETLSystemManagement.API.Controllers.HomeController.GetCompanyShow">
+            <summary>
+            获取 测试AutoMapper
+            </summary>
+            <returns></returns>
+        </member>
         <member name="M:ETLSystemManagement.API.Controllers.RentController.Shengdisplay">
             <summary>
             省显示
@@ -325,6 +331,11 @@
         <member name="P:ETLSystemManagement.API.Models.app_mobile_user.password">
             <summary>
             密码
+            </summary>
+        </member>
+        <member name="M:ETLSystemManagement.API.Models.AutoMapperConfigs.#ctor">
+            <summary>
+            配置可以互转的类
             </summary>
         </member>
         <member name="P:ETLSystemManagement.API.Models.JwtSettings.Issuer">
