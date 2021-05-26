@@ -3,7 +3,6 @@ using Microsoft.AspNetCore.Mvc;
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Threading.Tasks;
 using ETL.ERP.BLL;
 using ETL.ERP.Model;
 using ETLSystemManagement.API.Models;
@@ -12,8 +11,8 @@ using System.IdentityModel.Tokens.Jwt;
 using System.Text;
 using System.Security.Claims;
 using Microsoft.IdentityModel.Tokens;
-using IdentityModel;
 using Microsoft.AspNetCore.Authorization;
+using IdentityModel;
 
 namespace ETLSystemManagement.API.Controllers
 {
@@ -135,7 +134,7 @@ namespace ETLSystemManagement.API.Controllers
             return Ok(new
             {
                 code = 0,
-                msg = h>=1?true:false,
+                msg = h >= 1 ? true : false,
 
             });
         }
@@ -148,13 +147,13 @@ namespace ETLSystemManagement.API.Controllers
         [HttpGet, Route("GetFanCompan")]
         public IActionResult GetFanCompan(int id)
         {
-            Company list = company_BLL.GetFanTable<Company>(id,"id");
+            Company list = company_BLL.GetFanTable<Company>(id, "id");
 
             return Ok(new
             {
                 code = 0,
                 msg = "",
-                data=list
+                data = list
             });
         }
 
@@ -163,7 +162,7 @@ namespace ETLSystemManagement.API.Controllers
         /// </summary>
         /// <param name="model"></param>
         /// <returns></returns>
-        [HttpPost,Route("PostUpdCompan")]
+        [HttpPost, Route("PostUpdCompan")]
         public IActionResult PostUpdCompan(Company model)
         {
             int h = company_BLL.GetUpdateTable<Company>(model, "id");

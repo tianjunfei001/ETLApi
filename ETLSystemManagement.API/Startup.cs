@@ -10,6 +10,7 @@ using log4net.Repository;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
@@ -48,49 +49,18 @@ namespace ETLSystemManagement.API
         public void ConfigureServices(IServiceCollection services)
         {
 
-            //autofac 新增
-            services.AddControllersWithViews();
-
-
-
-            //分开
-            services.AddControllers();
-
-            //注册
-            //services.AddTransient<Ceshi>();
-            //services.AddTransient<SqlServerHelper>();
-
-
-            #region Cors跨域请求
-            services.AddCors(c =>
+            #region AutoMapper
+            services.Configure<CookiePolicyOptions>(options =>
             {
-                c.AddPolicy("AllRequests", policy =>
-                {
-                    policy
-                    .AllowAnyOrigin()
-                    .AllowAnyMethod()
-                    .AllowAnyHeader();
-
-                });
+                options.CheckConsentNeeded = context => true;
+                options.MinimumSameSitePolicy = SameSiteMode.None;
             });
+            //添加对AutoMapper的支持
+            services.AddAutoMapper(typeof(AutoMapperConfigs));
             #endregion
 
-
-            services.AddMvc();
-            //注册Swagger生成器
-            services.AddSwaggerGen(c =>
-            {
-                c.SwaggerDoc("v1", new OpenApiInfo
-                {
-                    Version = "v1",
-                    Title = "ETLSystemManagement.API"
-                });
-                //为 Swagger JSON and UI设置xml文档注释路径
-                //获取应用程序所在目录(绝对路径，不受工作目录影响，建议采用此方法获取路径使用windwos&Linux）
-                var basePath = Path.GetDirectoryName(typeof(Program).Assembly.Location);
-                var xmlPath = Path.Combine(basePath, "ETLSystemManagement.API.xml");
-                c.IncludeXmlComments(xmlPath);
-            });
+            //autofac 新增
+            services.AddControllersWithViews();
 
             #region Jwt配置
             //将appsettings.json中的JwtSettings部分文件读取到JwtSettings中，这是给其他地方用的
@@ -141,6 +111,47 @@ namespace ETLSystemManagement.API
             #endregion
 
 
+            //分开
+            services.AddControllers();
+
+
+
+            #region Cors跨域请求
+            services.AddCors(c =>
+            {
+                c.AddPolicy("AllRequests", policy =>
+                {
+                    policy
+                    .AllowAnyOrigin()
+                    .AllowAnyMethod()
+                    .AllowAnyHeader();
+
+                });
+            });
+            #endregion
+
+
+            services.AddMvc();
+
+            #region 注册Swagger生成器
+            services.AddSwaggerGen(c =>
+            {
+                c.SwaggerDoc("v1", new OpenApiInfo
+                {
+                    Version = "v1",
+                    Title = "ETLSystemManagement.API"
+                });
+                //为 Swagger JSON and UI设置xml文档注释路径
+                //获取应用程序所在目录(绝对路径，不受工作目录影响，建议采用此方法获取路径使用windwos&Linux）
+                var basePath = Path.GetDirectoryName(typeof(Program).Assembly.Location);
+                var xmlPath = Path.Combine(basePath, "ETLSystemManagement.API.xml");
+                c.IncludeXmlComments(xmlPath);
+            });
+            #endregion
+
+
+
+
         }
 
         //autofac 新增
@@ -153,6 +164,11 @@ namespace ETLSystemManagement.API
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
         {
+
+            #region 身份验证
+            app.UseAuthentication();
+            #endregion
+
             if (env.IsDevelopment())
             {
                 app.UseDeveloperExceptionPage();
@@ -170,9 +186,6 @@ namespace ETLSystemManagement.API
             //autofac 新增 可选
             this.AutofacContainer = app.ApplicationServices.GetAutofacRoot();
 
-            #region 身份验证
-            app.UseAuthentication();
-            #endregion 
 
             //开启Cors跨域请求中间件
             app.UseCors("AllRequests");
