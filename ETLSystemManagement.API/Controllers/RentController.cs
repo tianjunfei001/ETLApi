@@ -389,5 +389,332 @@ namespace ETLSystemManagement.API.Controllers
             return Ok(new { state = h > 0 ? true : false, msg = h > 0 ? "修改成功" : "修改失败" });
         }
 
+
+        /// <summary>
+        /// 小区显示
+        /// </summary>
+        /// <param name="a"></param>
+        /// <returns></returns>
+        [HttpGet("Communitydisplay")]
+        public IActionResult Communitydisplay(int Pageindex,int Pagesize,int Sheng,int Shi,int Qu) 
+        {
+            List<Community> list = new List<Community>();
+            List<Community> _list = new List<Community>();
+            try
+            {
+                list = bll.Communitydisplay(Sheng,Shi,Qu);
+                _list = list.Skip((Pageindex - 1) * Pagesize).Take(Pagesize).ToList();
+            }
+            catch (Exception ex)
+            {
+                log.Error(ex.Message);
+                throw;
+            }
+            return Ok(new {data=_list,count=list.Count });
+        }
+
+        /// <summary>
+        /// 房源显示
+        /// </summary>
+        /// <param name="a"></param>
+        /// <returns></returns>
+            [HttpGet("Housedisplay")]
+            public IActionResult Housedisplay(int Hid,int Pageindex,int Pagesize,int Sheng,int Shi,int Qu) 
+            {
+            List<House> list = new List<House>();
+            List<House> _list = new List<House>();
+            try
+            {
+                list = bll.Housedisplay(Hid,Sheng, Shi, Qu);
+                _list = list.Skip((Pageindex - 1) * Pagesize).Take(Pagesize).ToList();
+            }
+            catch (Exception ex)
+            {
+                log.Error(ex.Message);
+                throw;
+            } 
+            return Ok(new { data = _list, count = list.Count });
+            }
+
+        /// <summary>
+        /// 用户端资讯信息显示
+        /// </summary>
+        /// <param name="a"></param>
+        /// <returns></returns>
+        [HttpGet("Informationsheetdisplay")]
+        public IActionResult Informationsheetdisplay(int Pageindex,int Pagesize) 
+        {
+            List<Informationsheet> list = new List<Informationsheet>();
+            List<Informationsheet> _list = new List<Informationsheet>();
+            try
+            {
+                 list = bll.Informationsheetdisplay();
+                _list = list.Skip((Pageindex-1)*Pagesize).Take(Pagesize).ToList();
+            }
+            catch (Exception ex)
+            {
+                log.Error(ex.Message);
+                throw;
+            }
+
+            return Ok(new {data=_list,count=list.Count });
+        }
+
+        /// <summary>
+        /// 后台资讯信息显示
+        /// </summary>
+        /// <param name="a"></param>
+        /// <returns></returns>
+        [HttpGet("Infordisplay")]
+        public IActionResult Infordisplay(int Pageindex, int Pagesize)
+        {
+            List<Informationsheet> list = new List<Informationsheet>();
+            List<Informationsheet> _list = new List<Informationsheet>();
+            try
+            {
+                list = bll.Infordisplay();
+                _list = list.Skip((Pageindex - 1) * Pagesize).Take(Pagesize).ToList();
+            }
+            catch (Exception ex)
+            {
+                log.Error(ex.Message);
+                throw;
+            }
+
+            return Ok(new { data = _list, count = list.Count });
+        }
+
+        /// <summary>
+        /// 后台资讯信息添加
+        /// </summary>
+        /// <param name="a"></param>
+        /// <returns></returns>
+        [HttpPost("InsertInformationsheet")]
+        public IActionResult InsertInformationsheet(Informationsheet i)
+        {
+            int h;
+            try
+            {
+                h = bll.InsertInformationsheet(i);
+            }
+            catch (Exception ex)
+            {
+                log.Error(ex.Message);
+                throw;
+            }
+
+            return Ok(new { state = h > 0 ? true : false, msg = h > 0 ? "添加成功" : "添加失败" });
+        }
+
+        /// <summary>
+        /// 后台资讯信息修改
+        /// </summary>
+        /// <param name="a"></param>
+        /// <returns></returns>
+        [HttpPost("UpdInformationsheet")]
+        public IActionResult UpdInformationsheet(Informationsheet i)
+        {
+            int h;
+            try
+            {
+                 h = bll.UpdInformationsheet(i);
+            }
+            catch (Exception ex)
+            {
+                log.Error(ex.Message);
+                throw;
+            }
+
+            return Ok(new { state = h > 0 ? true : false, msg = h > 0 ? "修改成功" : "修改失败" });
+        }
+
+
+
+        /// <summary>
+        /// 后台资讯信息审核
+        /// </summary>
+        /// <param name="a"></param>
+        /// <returns></returns>
+        [HttpGet("UpdInforZt")]
+        public IActionResult UpdInforZt(int Id)
+        {
+            int h;
+            try
+            {
+                 h = bll.UpdInforZt(Id);
+            }
+            catch (Exception ex)
+            {
+                log.Error(ex.Message);
+                throw;
+            }
+            return Ok(new {state=h>0?true:false,msg=h>0?"审核通过":"审核未通过" });
+        }
+
+
+
+        /// <summary>
+        /// 后台资讯信息删除
+        /// </summary>
+        /// <param name="a"></param>
+        /// <returns></returns>
+        [HttpGet("DeleteInfor")]
+        public IActionResult DeleteInfor(string ids)
+        {
+            ids = ids.TrimEnd(',');
+            int h;
+            try
+            {
+                h = bll.DeleteInfor(ids);
+            }
+            catch (Exception ex)
+            {
+                log.Error(ex.Message);
+                throw;
+            }
+            return Ok(new { state = h > 0 ? true : false, msg = h > 0 ? "删除成功" : "删除失败" });
+        }
+
+
+        /// <summary>
+        /// 用户预约
+        /// </summary>
+        /// <param name="a"></param>
+        /// <returns></returns>
+        [HttpPost("InsertAppointment")]
+        public IActionResult InsertAppointment(Appointment a)
+        {
+            int h;
+            try
+            {
+                h = bll.InsertAppointment(a);
+            }
+            catch (Exception ex)
+            {
+                log.Error(ex.Message);
+                throw;
+            }
+
+            return Ok(new { state = h > 0 ? true : false, msg = h > 0 ? "预约已提交,请等待审核" : "预约提交失败" });
+        }
+
+        /// <summary>
+        /// 后台预约审核
+        /// </summary>
+        /// <param name="a"></param>
+        /// <returns></returns>
+        [HttpGet("UpdAppointment")]
+        public IActionResult UpdAppointment(int Id)
+        {
+            int h;
+            try
+            {
+                h = bll.UpdAppointment(Id);
+            }
+            catch (Exception ex)
+            {
+                log.Error(ex.Message);
+                throw;
+            }
+
+            return Ok(new { state = h > 0 ? true : false, msg = h > 0 ? "预约成功" : "预约失败" });
+        }
+
+
+        /// <summary>
+        /// 后台显示用户预约
+        /// </summary>
+        /// <param name="a"></param>
+        /// <returns></returns>
+        [HttpGet("Appointmentdisplay")]
+        public IActionResult Appointmentdisplay(int Pageindex,int Pagesize)
+        {
+            List<Appointment> list = bll.Appointmentdisplay();
+            List<Appointment> _list = bll.Appointmentdisplay();
+            try
+            {
+                list = bll.Appointmentdisplay();
+                _list = list.Skip((Pageindex-1)*Pagesize).Take(Pagesize).ToList();
+            }
+            catch (Exception ex)
+            {
+                log.Error(ex.Message);
+                throw;
+            }
+
+            return Ok(new {data=_list,count=list.Count });
+        }
+
+
+        /// <summary>
+        /// 用户预约显示
+        /// </summary>
+        /// <param name="a"></param>
+        /// <returns></returns>
+        [HttpGet("display")]
+        public IActionResult display(int Uid,int Pageindex, int Pagesize)
+        {
+            List<Appointmentdisplay> list = new List<Appointmentdisplay>();
+            List<Appointmentdisplay> _list = new List<Appointmentdisplay>();
+            try
+            {
+                list = bll.display(Uid);
+                _list = list.Skip((Pageindex - 1) * Pagesize).Take(Pagesize).ToList();
+            }
+            catch (Exception ex)
+            {
+                log.Error(ex.Message);
+                throw;
+            }
+
+            return Ok(new { data = _list, count = list.Count });
+        }
+
+
+        /// <summary>
+        /// 用户预约修改
+        /// </summary>
+        /// <param name="a"></param>
+        /// <returns></returns>
+        [HttpPost("UpdateAppointment")]
+        public IActionResult UpdateAppointment(Appointment a)
+        {
+            int h;
+
+            try
+            {
+                h = bll.UpdateAppointment(a);
+            }
+            catch (Exception ex)
+            {
+                log.Error(ex.Message);              
+                throw;
+            }
+
+            return Ok(new{state=h>0?true:false,msg=h>0?"修改成功":"修改失败" });
+        }
+
+        /// <summary>
+        /// 用户取消预约
+        /// </summary>
+        /// <param name="a"></param>
+        /// <returns></returns>
+        [HttpGet("CancelAppointment")]
+        public IActionResult CancelAppointment(int Id)
+        {
+            int h;
+
+            try
+            {
+                h = bll.CancelAppointment(Id);
+            }
+            catch (Exception ex)
+            {
+                log.Error(ex.Message);
+                throw;
+            }
+
+            return Ok(new { state = h > 0 ? true : false, msg = h > 0 ? "取消预约成功" : "取消预约失败" });
+        }
     }
 }

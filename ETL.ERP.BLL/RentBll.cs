@@ -134,5 +134,140 @@ namespace ETL.ERP.BLL
             var set = DB.GetDataSet(sql);
             return DB.DatatableTolist<Area>(set.Tables[0]);
         }
+
+        //小区显示
+        public List<Community> Communitydisplay(int Sheng,int Shi,int Qu)
+        {
+            string sql = $"SELECT a.*,b.District,c.District,d.District FROM Community a JOIN Area b ON a.Sheng=b.Id JOIN Area c ON a.Shi=c.Id JOIN Area d ON a.Qu=d.Id where 1=1";
+            
+            if (Sheng > 0) 
+            {
+                sql += $" and a.Sheng={Sheng}";
+            }
+            if (Shi > 0)
+            {
+                sql += $" and a.Shi={Shi}";
+            }
+            if (Qu > 0)
+            {
+                sql += $" and a.Qu={Qu}";
+            }
+
+
+            var set = DB.GetDataSet(sql);
+            return DB.DatatableTolist<Community>(set.Tables[0]);
+        }
+
+        //房源信息显示
+        public List<House> Housedisplay(int Hid,int Sheng, int Shi, int Qu) 
+        {
+            string sql = $"SELECT e.*,b.District,c.District,d.District FROM Community a JOIN Area b ON a.Sheng=b.Id JOIN Area c ON a.Shi=c.Id JOIN Area d ON a.Qu=d.Id JOIN House e ON a.Cid = e.Cid WHERE 1 = 1";
+            if (Hid>0)
+            {
+                sql += $" and Hid={Hid}";
+            }
+            if (Sheng > 0)
+            {
+                sql += $" and a.Sheng={Sheng}";
+            }
+            if (Shi > 0)
+            {
+                sql += $" and a.Shi={Shi}";
+            }
+            if (Qu > 0)
+            {
+                sql += $" and a.Qu={Qu}";
+            }
+            var set = DB.GetDataSet(sql);
+            return DB.DatatableTolist<House>(set.Tables[0]);
+        }
+
+        //用户资讯信息显示
+        public List<Informationsheet> Informationsheetdisplay() 
+        {
+            string sql = $"SELECT * FROM Informationsheet WHERE State='启用'";
+            var set = DB.GetDataSet(sql);
+            return DB.DatatableTolist<Informationsheet>(set.Tables[0]);
+        }
+
+        //后台资讯信息显示
+        public List<Informationsheet> Infordisplay() 
+        {
+            string sql = $"SELECT * FROM Informationsheet";
+            var set = DB.GetDataSet(sql);
+            return DB.DatatableTolist<Informationsheet>(set.Tables[0]);
+        }
+
+        //后台资讯信息审核
+        public int UpdInforZt(int Id) 
+        {
+            string sql = $"UPDATE Informationsheet SET State='已审核' WHERE Id={Id}";
+            return DB.ExceuteNonQuery(sql);
+        }
+
+        //后台资讯信息添加
+        public int InsertInformationsheet(Informationsheet i)
+        {
+            string sql = $"INSERT INTO Informationsheet VALUES(NULL, '{i.Image}', '{i.Title}', '{i.Contont}', {i.Views}, NOW(), {i.Nid}, '未审核')";
+            return DB.ExceuteNonQuery(sql);
+        }
+
+        //后台资讯信息修改
+        public int UpdInformationsheet(Informationsheet i) 
+        {
+            string sql = $"UPDATE Informationsheet SET Image='{i.Image}',Title='{i.Title}',Contont='{i.Contont}',Releasetime=NOW(),State='禁用' WHERE Id={i.Id}";
+            return DB.ExceuteNonQuery(sql);
+        }
+
+        //后台资讯信息删除
+        public int DeleteInfor(string ids) 
+        {
+            string sql = $"DELETE FROM Informationsheet WHERE Id in({ids})";
+            return DB.ExceuteNonQuery(sql);
+        }
+
+        //用户预约
+        public int InsertAppointment(Appointment a) 
+        {
+            string sql = $"INSERT INTO Appointment VALUES(Null, {a.Uid}, {a.Nid}, '{a.CreateTime}', '预约中')";
+            return DB.ExceuteNonQuery(sql);
+        }
+
+        //后台显示用户预约
+        public List<Appointment> Appointmentdisplay() 
+        {
+            string sql = $"SELECT * FROM Appointment";
+            var set = DB.GetDataSet(sql);
+            return DB.DatatableTolist<Appointment>(set.Tables[0]);
+        }
+
+        //后台用户预约审核
+        public int UpdAppointment(int Id) 
+        {
+            string sql = $"UPDATE Appointment SET Zt='预约成功' WHERE Id={Id}";
+            return DB.ExceuteNonQuery(sql);
+        }
+
+        //用户预约显示
+        public List<Appointmentdisplay> display(int Uid) 
+        {
+            string sql = $"SELECT * FROM Appointment a JOIN House b ON a.Nid=b.Nid WHERE a.Nid IN(SELECT Nid FROM Appointment WHERE Uid={Uid})";
+            var set = DB.GetDataSet(sql);
+            return DB.DatatableTolist<Appointmentdisplay>(set.Tables[0]);
+        }
+
+        //用户预约修改
+        public int UpdateAppointment(Appointment a) 
+        {
+            string sql = $"UPDATE Appointment SET Nid={a.Nid},CreateTime='{a.CreateTime}','预约中',WHERE Id={a.Id}";
+            return DB.ExceuteNonQuery(sql);
+        }
+
+        //用户取消预约
+        public int CancelAppointment(int Id) 
+        {
+            string sql =$"UPDATE Appointment SET Zt='取消预约' WHERE Id={Id}";
+            return DB.ExceuteNonQuery(sql);
+        }
     }
 }

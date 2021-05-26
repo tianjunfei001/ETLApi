@@ -174,6 +174,104 @@
             <param name="a"></param>
             <returns></returns>
         </member>
+        <member name="M:ETLSystemManagement.API.Controllers.RentController.Communitydisplay(System.Int32,System.Int32,System.Int32,System.Int32,System.Int32)">
+            <summary>
+            小区显示
+            </summary>
+            <param name="a"></param>
+            <returns></returns>
+        </member>
+        <member name="M:ETLSystemManagement.API.Controllers.RentController.Housedisplay(System.Int32,System.Int32,System.Int32,System.Int32,System.Int32,System.Int32)">
+            <summary>
+            房源显示
+            </summary>
+            <param name="a"></param>
+            <returns></returns>
+        </member>
+        <member name="M:ETLSystemManagement.API.Controllers.RentController.Informationsheetdisplay(System.Int32,System.Int32)">
+            <summary>
+            用户端资讯信息显示
+            </summary>
+            <param name="a"></param>
+            <returns></returns>
+        </member>
+        <member name="M:ETLSystemManagement.API.Controllers.RentController.Infordisplay(System.Int32,System.Int32)">
+            <summary>
+            后台资讯信息显示
+            </summary>
+            <param name="a"></param>
+            <returns></returns>
+        </member>
+        <member name="M:ETLSystemManagement.API.Controllers.RentController.InsertInformationsheet(ETL.ERP.Model.Rent.Model.Informationsheet)">
+            <summary>
+            后台资讯信息添加
+            </summary>
+            <param name="a"></param>
+            <returns></returns>
+        </member>
+        <member name="M:ETLSystemManagement.API.Controllers.RentController.UpdInformationsheet(ETL.ERP.Model.Rent.Model.Informationsheet)">
+            <summary>
+            后台资讯信息修改
+            </summary>
+            <param name="a"></param>
+            <returns></returns>
+        </member>
+        <member name="M:ETLSystemManagement.API.Controllers.RentController.UpdInforZt(System.Int32)">
+            <summary>
+            后台资讯信息审核
+            </summary>
+            <param name="a"></param>
+            <returns></returns>
+        </member>
+        <member name="M:ETLSystemManagement.API.Controllers.RentController.DeleteInfor(System.String)">
+            <summary>
+            后台资讯信息删除
+            </summary>
+            <param name="a"></param>
+            <returns></returns>
+        </member>
+        <member name="M:ETLSystemManagement.API.Controllers.RentController.InsertAppointment(ETL.ERP.Model.Rent.Model.Appointment)">
+            <summary>
+            用户预约
+            </summary>
+            <param name="a"></param>
+            <returns></returns>
+        </member>
+        <member name="M:ETLSystemManagement.API.Controllers.RentController.UpdAppointment(System.Int32)">
+            <summary>
+            后台预约审核
+            </summary>
+            <param name="a"></param>
+            <returns></returns>
+        </member>
+        <member name="M:ETLSystemManagement.API.Controllers.RentController.Appointmentdisplay(System.Int32,System.Int32)">
+            <summary>
+            后台显示用户预约
+            </summary>
+            <param name="a"></param>
+            <returns></returns>
+        </member>
+        <member name="M:ETLSystemManagement.API.Controllers.RentController.display(System.Int32,System.Int32,System.Int32)">
+            <summary>
+            用户预约显示
+            </summary>
+            <param name="a"></param>
+            <returns></returns>
+        </member>
+        <member name="M:ETLSystemManagement.API.Controllers.RentController.UpdateAppointment(ETL.ERP.Model.Rent.Model.Appointment)">
+            <summary>
+            用户预约修改
+            </summary>
+            <param name="a"></param>
+            <returns></returns>
+        </member>
+        <member name="M:ETLSystemManagement.API.Controllers.RentController.CancelAppointment(System.Int32)">
+            <summary>
+            用户取消预约
+            </summary>
+            <param name="a"></param>
+            <returns></returns>
+        </member>
         <member name="M:ETLSystemManagement.API.Controllers.SystemSetupController.GetUsersList">
             <summary>
             用户组显示
