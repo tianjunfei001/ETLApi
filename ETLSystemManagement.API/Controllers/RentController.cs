@@ -716,5 +716,105 @@ namespace ETLSystemManagement.API.Controllers
 
             return Ok(new { state = h > 0 ? true : false, msg = h > 0 ? "取消预约成功" : "取消预约失败" });
         }
+
+
+        /// <summary>
+        /// 用户收藏
+        /// </summary>
+        /// <param name="a"></param>
+        /// <returns></returns>
+        [HttpGet("AddCollection")]
+        public IActionResult AddCollection(Collection c)
+        {
+            int h;
+
+            try
+            {
+                h = bll.AddCollection(c);
+            }
+            catch (Exception ex)
+            {
+                log.Error(ex.Message);
+                throw;
+            }
+
+            return Ok(new { state = h > 0 ? true : false, msg = h > 0 ? "收藏成功" : "收藏失败" });
+        }
+
+        /// <summary>
+        /// 用户删除收藏
+        /// </summary>
+        /// <param name="a"></param>
+        /// <returns></returns>
+        [HttpGet("DelCollection")]
+        public IActionResult DelCollection(string ids)
+        {
+            ids = ids.TrimEnd(',');
+            int h;
+
+            try
+            {
+                h = bll.DelCollection(ids);
+            }
+            catch (Exception ex)
+            {
+                log.Error(ex.Message);
+                throw;
+            }
+
+            return Ok(new { state = h > 0 ? true : false, msg = h > 0 ? "删除成功" : "删除失败" });
+        }
+
+
+
+        /// <summary>
+        /// 用户收藏显示
+        /// </summary>
+        /// <param name="a"></param>
+        /// <returns></returns>
+        [HttpGet("Collectdisplay")]
+        public IActionResult Collectdisplay(int Uid, int Pageindex, int Pagesize)
+        {
+            List<Collectiondisplay> list = new List<Collectiondisplay>();
+            List<Collectiondisplay> _list = new List<Collectiondisplay>();
+            try
+            {
+                list = bll.Collectdisplay(Uid);
+                _list = list.Skip((Pageindex - 1) * Pagesize).Take(Pagesize).ToList();
+            }
+            catch (Exception ex)
+            {
+                log.Error(ex.Message);
+                throw;
+            }
+
+            return Ok(new { data = _list, count = list.Count });
+        }
+
+
+
+        /// <summary>
+        /// 后台用户收藏显示
+        /// </summary>
+        /// <param name="a"></param>
+        /// <returns></returns>
+        [HttpGet("Colldisplay")]
+        public IActionResult Colldisplay(int Uid, int Pageindex, int Pagesize)
+        {
+            List<Collection> list = new List<Collection>();
+            List<Collection> _list = new List<Collection>();
+            try
+            {
+                list = bll.Colldisplay(Uid);
+                _list = list.Skip((Pageindex - 1) * Pagesize).Take(Pagesize).ToList();
+            }
+            catch (Exception ex)
+            {
+                log.Error(ex.Message);
+                throw;
+            }
+
+            return Ok(new { data = _list, count = list.Count });
+        }
     }
 }

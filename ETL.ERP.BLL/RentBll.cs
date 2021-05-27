@@ -269,5 +269,40 @@ namespace ETL.ERP.BLL
             string sql =$"UPDATE Appointment SET Zt='取消预约' WHERE Id={Id}";
             return DB.ExceuteNonQuery(sql);
         }
+
+        //用户收藏
+        public int AddCollection(Collection c) 
+        {
+            string sql = $"INSERT INTO Collection VALUES(NULL, {c.Uid}, {c.Nid}, NOW())";
+            return DB.ExceuteNonQuery(sql);
+        }
+
+        //用户删除收藏
+        public int DelCollection(string ids) 
+        {
+            string sql = $"DELETE FROM Collection WHERE Id IN({ids})";
+            return DB.ExceuteNonQuery(sql);
+        }
+
+        //用户收藏显示
+        public List<Collectiondisplay> Collectdisplay(int Uid) 
+        {
+            string sql = $"SELECT * FROM Collection a JOIN House b ON a.Nid=b.Nid WHERE a.Nid IN(SELECT Nid FROM Collection WHERE Uid={Uid}) ";
+            var set = DB.GetDataSet(sql);
+            return DB.DatatableTolist<Collectiondisplay>(set.Tables[0]);
+        }
+
+        //后台收藏显示
+        public List<Collection> Colldisplay(int Uid) 
+        {
+            
+            string sql = $"SELECT * FROM Collection Where 1=1";
+            if (Uid!=0)
+            {
+                sql += $" and Uid={Uid}";
+            }
+            var set = DB.GetDataSet(sql);
+            return DB.DatatableTolist<Collection>(set.Tables[0]);
+        } 
     }
 }
