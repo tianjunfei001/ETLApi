@@ -11,6 +11,11 @@
   </ItemGroup>
 
   <ItemGroup>
+    <PackageReference Include="NPOI" Version="2.5.3" />
+    <PackageReference Include="NPOI.Excel" Version="2.1.1" />
+  </ItemGroup>
+
+  <ItemGroup>
     <ProjectReference Include="..\ETL.ERP.DAL\ETL.ERP.DAL.csproj" />
     <ProjectReference Include="..\ETL.ERP.Model\ETL.ERP.Model.csproj" />
     <ProjectReference Include="..\ETL.ERP.ThirdParty\ETL.ERP.ThirdParty.csproj" />
