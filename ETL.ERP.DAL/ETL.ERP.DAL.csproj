@@ -8,6 +8,8 @@
     <PackageReference Include="Dapper" Version="2.0.90" />
     <PackageReference Include="Microsoft.Extensions.Configuration" Version="5.0.0" />
     <PackageReference Include="MySql.Data" Version="8.0.25" />
+    <PackageReference Include="NPOI" Version="2.5.3" />
+    <PackageReference Include="NPOI.Excel" Version="2.1.1" />
     <PackageReference Include="System.Data.SqlClient" Version="4.8.2" />
   </ItemGroup>
 

@@ -4,4 +4,9 @@
     <TargetFramework>netcoreapp3.1</TargetFramework>
   </PropertyGroup>
 
+  <ItemGroup>
+    <PackageReference Include="NPOI" Version="2.5.3" />
+    <PackageReference Include="NPOI.Excel" Version="2.1.1" />
+  </ItemGroup>
+
 </Project>

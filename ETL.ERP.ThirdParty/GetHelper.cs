@@ -1,4 +1,5 @@
-﻿using System;
+﻿using NPOI.HSSF.UserModel;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations.Schema;
 using System.Data;
@@ -66,10 +67,36 @@ namespace ETL.ERP.ThirdParty
         }
 
         //导出Excel
-       
 
+        public static System.IO.MemoryStream ExcelOut(DataTable dt)
+        {
+            var workBook = new HSSFWorkbook();
+            var sheet = workBook.CreateSheet();
+            var rows = dt.Rows;
+            var colums = dt.Columns;
+            var head = sheet.CreateRow(0); //创建表头
+            //获取并赋值
+            for (int i = 0; i < colums.Count; i++)
+            {
+                var colum = head.CreateCell(i);
+                colum.SetCellValue(Convert.ToString(dt.Columns[i].ColumnName));
+            }
+            //获取数据并赋值
+            for (int i = 0; i < rows.Count; i++)
+            {
+                var row = sheet.CreateRow(i + 1);
+                for (int d = 0; d < colums.Count; d++)
+                {
+                    var colum = row.CreateCell(d);
+                    colum.SetCellValue(dt.Rows[i][d].ToString());
+                }
+            }
+            System.IO.MemoryStream stream = new System.IO.MemoryStream();
+            workBook.Write(stream);
+            return stream;
+        }
         //高级版本导出
-       
+
 
         /// <summary>
         /// 添加sql语句
