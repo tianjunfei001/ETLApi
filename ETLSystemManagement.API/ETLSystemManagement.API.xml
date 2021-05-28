@@ -395,6 +395,34 @@
             <param name="a"></param>
             <returns></returns>
         </member>
+        <member name="M:ETLSystemManagement.API.Controllers.RentController.AddCollection(ETL.ERP.Model.Rent.Model.Collection)">
+            <summary>
+            用户收藏
+            </summary>
+            <param name="a"></param>
+            <returns></returns>
+        </member>
+        <member name="M:ETLSystemManagement.API.Controllers.RentController.DelCollection(System.String)">
+            <summary>
+            用户删除收藏
+            </summary>
+            <param name="a"></param>
+            <returns></returns>
+        </member>
+        <member name="M:ETLSystemManagement.API.Controllers.RentController.Collectdisplay(System.Int32,System.Int32,System.Int32)">
+            <summary>
+            用户收藏显示
+            </summary>
+            <param name="a"></param>
+            <returns></returns>
+        </member>
+        <member name="M:ETLSystemManagement.API.Controllers.RentController.Colldisplay(System.Int32,System.Int32,System.Int32)">
+            <summary>
+            后台用户收藏显示
+            </summary>
+            <param name="a"></param>
+            <returns></returns>
+        </member>
         <member name="M:ETLSystemManagement.API.Controllers.SystemSetupController.GetUsersList">
             <summary>
             用户组显示
