@@ -15,10 +15,9 @@ namespace ETL.ERP.BLL
             helper = _helper;
         }
 
-
         public List<LogLog> GetLoginLogLists() 
         {
-            string sql = $"select * from log_log;";
+            string sql = $"select * from log_log l join users u on l.uid = u.uid;";
             DataTable dt =  helper.GetDataSet(sql).Tables[0];
             List<LogLog> list = helper.DatatableTolist<LogLog>(dt);
             return list;

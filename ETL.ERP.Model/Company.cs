@@ -10,10 +10,13 @@ namespace ETL.ERP.Model
     public partial class Company
     {
         public int id { get; set; }
+        public int uid { get; set; }
         public string Represent_Name { get; set; }
         public string Phone { get; set; }
         public string Corporate_Name { get; set; }
         public DateTime? Create_Time { get; set; }
+        public string BankCode { get; set; }
+        public string BankName { get; set; }
         public string Position { get; set; }
         public string Address { get; set; }
         public string Credit_Code { get; set; }

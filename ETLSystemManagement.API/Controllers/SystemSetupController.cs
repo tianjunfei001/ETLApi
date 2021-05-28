@@ -15,9 +15,9 @@ namespace ETLSystemManagement.API.Controllers
     {
         UserGroupBll userGroupBll;
         LoginLogBll loginLogBll;
-        OperationBll operationBll;
+        OperationLogBll operationBll;
         private ILog log = LogManager.GetLogger(Startup.repository.Name, typeof(SystemSetupController));
-        public SystemSetupController(UserGroupBll _userGroupBll, LoginLogBll _loginLogBll, OperationBll _operationBll) 
+        public SystemSetupController(UserGroupBll _userGroupBll, LoginLogBll _loginLogBll, OperationLogBll _operationBll) 
         {
             userGroupBll = _userGroupBll;
             loginLogBll = _loginLogBll;
