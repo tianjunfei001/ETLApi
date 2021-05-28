@@ -4,6 +4,56 @@
         <name>ETLSystemManagement.API</name>
     </assembly>
     <members>
+        <member name="M:ETLSystemManagement.API.Controllers.AccountManegeController.GetInvoiceList(System.Int32,System.Int32,System.Int32)">
+            <summary>
+            显示发票信息
+            </summary>
+            <param name="uid"></param>
+            <param name="page"></param>
+            <param name="limit"></param>
+            <returns></returns>
+        </member>
+        <member name="M:ETLSystemManagement.API.Controllers.AccountManegeController.DelInvoice(System.Int32)">
+            <summary>
+            删除发票信息
+            </summary>
+            <param name="id"></param>
+            <returns></returns>
+        </member>
+        <member name="M:ETLSystemManagement.API.Controllers.AccountManegeController.GetOperationLogs(System.Int32,System.Nullable{System.DateTime},System.Nullable{System.DateTime},System.Int32,System.Int32)">
+            <summary>
+            操作日志
+            </summary>
+            <param name="uid"></param>
+            <param name="BeginTime"></param>
+            <param name="EndTime"></param>
+            <param name="page"></param>
+            <param name="limit"></param>
+            <returns></returns>
+        </member>
+        <member name="M:ETLSystemManagement.API.Controllers.AccountManegeController.GetLogLogs(System.Int32,System.Nullable{System.DateTime},System.Nullable{System.DateTime},System.Int32,System.Int32)">
+            <summary>
+            登录日志
+            </summary>
+            <param name="uid"></param>
+            <param name="BeginTime"></param>
+            <param name="EndTime"></param>
+            <param name="page"></param>
+            <param name="limit"></param>
+            <returns></returns>
+        </member>
+        <member name="M:ETLSystemManagement.API.Controllers.AccountManegeController.OutLogLogsExcel(System.Int32)">
+            <summary>
+            导出登录日志
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:ETLSystemManagement.API.Controllers.AccountManegeController.OutOperationLogsExcel(System.Int32)">
+            <summary>
+            导出操作日志
+            </summary>
+            <returns></returns>
+        </member>
         <member name="M:ETLSystemManagement.API.Controllers.CompanyController.Token(ETLSystemManagement.API.Models.app_mobile_user)">
             <summary>
             获取token
@@ -115,6 +165,12 @@
             修改本公司信息
             </summary>
             <param name="oc"></param>
+            <returns></returns>
+        </member>
+        <member name="M:ETLSystemManagement.API.Controllers.HomeController.Get">
+            <summary>
+            测试
+            </summary>
             <returns></returns>
         </member>
         <member name="M:ETLSystemManagement.API.Controllers.HomeController.GetShow">
