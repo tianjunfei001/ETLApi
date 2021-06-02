@@ -2,10 +2,11 @@
 
   <PropertyGroup>
     <TargetFramework>net5.0</TargetFramework>
+    <UserSecretsId>e8b31263-7ac0-42cd-bc79-37a76da3b1c9</UserSecretsId>
   </PropertyGroup>
 
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
-    <DocumentationFile>D:\1808A班\实训二\ETLSystemManagement.API\ETLSystemManagement.API.xml</DocumentationFile>
+    <DocumentationFile>C:\Users\田俊飞\Desktop\实2\ETLSystemManagement.API\ETLSystemManagement.API.xml</DocumentationFile>
     <NoWarn>1701;1702;1591</NoWarn>
   </PropertyGroup>
 
@@ -35,6 +36,12 @@
     <ProjectReference Include="..\ETL.ERP.BLL\ETL.ERP.BLL.csproj" />
     <ProjectReference Include="..\ETL.ERP.DAL\ETL.ERP.DAL.csproj" />
     <ProjectReference Include="..\ETL.ERP.Model\ETL.ERP.Model.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Update="ETLSystemManagement.API.xml">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
   </ItemGroup>
 
 </Project>

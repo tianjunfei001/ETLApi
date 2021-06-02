@@ -167,12 +167,6 @@
             <param name="oc"></param>
             <returns></returns>
         </member>
-        <member name="M:ETLSystemManagement.API.Controllers.HomeController.Get">
-            <summary>
-            测试
-            </summary>
-            <returns></returns>
-        </member>
         <member name="M:ETLSystemManagement.API.Controllers.HomeController.GetShow">
             <summary>
             测试
@@ -182,6 +176,12 @@
         <member name="M:ETLSystemManagement.API.Controllers.HomeController.GetCompanyShow">
             <summary>
             获取 测试AutoMapper
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:ETLSystemManagement.API.Controllers.HomeController.RepLiteTest(System.String)">
+            <summary>
+            RepLiteTest  爬虫
             </summary>
             <returns></returns>
         </member>

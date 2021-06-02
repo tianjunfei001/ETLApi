@@ -68,13 +68,13 @@ namespace ETLSystemManagement.API.Controllers
         /// </summary>
         /// <returns></returns>
         [HttpGet, Route("RepLiteTest")]
-        public IActionResult RepLiteTest()
+        public IActionResult RepLiteTest(string url)
         {
             //容器接受
             Article article = new Article();
 
             //指定源
-            var url = "http://www.xinhuanet.com/politics/leaders/2021-05/27/c_1127500668.htm";
+            //var url = "http://www.xinhuanet.com/politics/leaders/2021-05/27/c_1127500668.htm";
 
             //创建HtmlAgiLityPack 对象
             HtmlWeb web = new HtmlWeb

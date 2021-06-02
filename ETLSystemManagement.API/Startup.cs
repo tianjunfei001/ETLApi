@@ -122,9 +122,11 @@ namespace ETLSystemManagement.API
                 c.AddPolicy("AllRequests", policy =>
                 {
                     policy
-                    .AllowAnyOrigin()
+                    .SetIsOriginAllowed(_=>true)
+                    //.WithOrigins("http://localhost:8088", "http://127.0.0.1")
                     .AllowAnyMethod()
-                    .AllowAnyHeader();
+                    .AllowAnyHeader()
+                    .AllowCredentials();
 
                 });
             });
@@ -139,7 +141,8 @@ namespace ETLSystemManagement.API
                 c.SwaggerDoc("v1", new OpenApiInfo
                 {
                     Version = "v1",
-                    Title = "ETLSystemManagement.API"
+                    Title = "ETLSystemManagement.API",
+                    Description="ETLApi"
                 });
                 //为 Swagger JSON and UI设置xml文档注释路径
                 //获取应用程序所在目录(绝对路径，不受工作目录影响，建议采用此方法获取路径使用windwos&Linux）
