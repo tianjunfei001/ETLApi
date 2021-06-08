@@ -185,6 +185,49 @@
             </summary>
             <returns></returns>
         </member>
+        <member name="F:ETLSystemManagement.API.Controllers.HomeController.url">
+            ========================================程序配置参数区开始
+        </member>
+        <member name="M:ETLSystemManagement.API.Controllers.HomeController.GetYan(System.String)">
+            ========================================程序配置参数区结束
+            <summary>
+            发生短信验证码
+            </summary>
+        </member>
+        <member name="M:ETLSystemManagement.API.Controllers.HomeController.sendSmsCode(System.String,System.Int32,System.String)">
+            <summary>
+            发生短信验证码
+            </summary>
+            <param name="to">手机号</param>
+            <param name="template">短信模板ID</param>
+            <param name="smscode">验证码</param>
+            <returns></returns>
+        </member>
+        <member name="M:ETLSystemManagement.API.Controllers.HomeController.getsign(System.Collections.Specialized.NameValueCollection)">
+            <summary>
+            获取param签名
+            </summary>
+            <param name="parameters"></param>
+            <returns></returns>
+        </member>
+        <member name="T:ETLSystemManagement.API.Controllers.HttpClient">
+            <summary>
+            短信帮助类
+            </summary>
+        </member>
+        <member name="M:ETLSystemManagement.API.Controllers.HttpClient.HttpPost(System.String,System.Collections.Specialized.NameValueCollection)">
+            <summary>
+            POST请求与获取结果  
+            </summary>
+            <param name="Url"></param>
+            <param name="parameters"></param>
+            <returns></returns>
+        </member>
+        <member name="M:ETLSystemManagement.API.Controllers.HttpClient.HttpPost(System.String,System.String)">
+            <summary>  
+            POST请求与获取结果  
+            </summary>  
+        </member>
         <member name="M:ETLSystemManagement.API.Controllers.RentController.Shengdisplay">
             <summary>
             省显示
